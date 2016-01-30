@@ -13,17 +13,20 @@ import java.sql.SQLException;
  * @author Asus
  */
 public class Connector {
-  String url = "jdbc:mysql://localhost:3306/stackexchange";
+  String url = "jdbc:mysql://localhost:3306/inventory";
   String username = "root";
-  String password = "";
+  String password = "hahahahaha";
 
   public Connection connect() {
     Connection ret = null;
     System.out.println("Connecting database...");
 
     try {
+      Class.forName("com.mysql.jdbc.Driver");
       ret = DriverManager.getConnection(url, username, password);
-    } catch (SQLException ex) {
+      System.out.println("Database connected");
+    } catch (SQLException | ClassNotFoundException ex) {
+        ex.printStackTrace();
     } 
     
     return ret;
