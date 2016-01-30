@@ -10,12 +10,14 @@ import java.sql.Connection;
 
 /**
  *
- * @author Asus
+ * @author User
  */
-public class Invetory {  
-  /* Connecting to Database */
-  Connector db = new Connector();
-  Connection conn = db.connect();
-  
-  
+public class Model {
+    
+    protected Connection conn;
+    
+    public Model() {
+        Connector connector = new Connector();
+        this.conn = connector.connect();
+    }
 }
